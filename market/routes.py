@@ -1,8 +1,8 @@
 
 from flask import render_template
 
-from app import app
-from models import Item
+from market import app
+from market.models import Item
 
 
 @app.route('/')
