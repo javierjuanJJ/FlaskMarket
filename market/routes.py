@@ -2,7 +2,7 @@
 from flask import render_template, redirect, url_for, flash
 
 from market import app, db
-from market.forms import RegisterForm
+from market.forms import RegisterForm, LoginForm
 from market.models import Item, User
 
 
@@ -31,3 +31,9 @@ def register_page():
             flash(f'There was an error with creating a user: {err_msg}', category='danger')
 
     return render_template('register.html', form=form)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login_page():
+    form = LoginForm()
+    return render_template('login.html', form=form)
